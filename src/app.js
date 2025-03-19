@@ -188,7 +188,7 @@ autoUpdater.setFeedURL({
   provider: "github",
   owner: "hafuvw",
   repo: "MisterClub-Launcher",
-  token: "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",
+  token: "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",
 });
 
 ipcMain.handle("update-app", async () => {
