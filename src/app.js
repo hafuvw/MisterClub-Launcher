@@ -158,7 +158,7 @@ ipcMain.on(
     });
   }
 );
-// SIGMA SIGMA BOY -> HAFU ES PUTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO, le encanta el pitito deaaa :) :speaking_head: 🗣️🗣️🗣️🗣️🗣️
+// SIGMA SIGMA BOY -> RAUH ES PUTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO, le encanta el pitito deaaa :) :speaking_head: 🗣️🗣️🗣️🗣️🗣️
 ipcMain.on(
   "new-status-discord-other",
   async (event, username, iconUrl, name, status) => {
@@ -182,7 +182,7 @@ ipcMain.on(
   }
 );
 
-autoUpdater.autoDownload = false;
+autoUpdater.autoDownload = true;
 
 autoUpdater.setFeedURL({
   provider: "github",
