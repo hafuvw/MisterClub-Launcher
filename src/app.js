@@ -158,7 +158,6 @@ ipcMain.on(
     });
   }
 );
-// SIGMA SIGMA BOY -> RAUH ES PUTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO, le encanta el pitito deaaa :) :speaking_head: 🗣️🗣️🗣️🗣️🗣️
 ipcMain.on(
   "new-status-discord-other",
   async (event, username, iconUrl, name, status) => {
@@ -182,14 +181,8 @@ ipcMain.on(
   }
 );
 
-autoUpdater.autoDownload = true;
+autoUpdater.autoDownload = false;
 
-autoUpdater.setFeedURL({
-  provider: "github",
-  owner: "hafuvw",
-  repo: "MisterClub-Launcher",
-  token: "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",
-});
 
 ipcMain.handle("update-app", async () => {
   return await new Promise(async (resolve, reject) => {

@@ -2,7 +2,7 @@
   "name": "misterclub-launcher",
   "preductname": "Mister Client",
   "versionType": "Estable",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Cliente oficial de Mister Club",
   "main": "src/app.js",
   "author": {
