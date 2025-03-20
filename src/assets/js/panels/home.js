@@ -1,5 +1,5 @@
 /**
- * @author Luuxis
+ * @author itzrauh
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 import {
@@ -9,11 +9,7 @@ import {
   changePanel,
   appdata,
   pkg,
-  popup,
   setStatus,
-  playRandomSong,
-  fetchSongs,
-  toggleMute,
 } from "../utils.js";
 const { Launch } = require("minecraft-java-core");
 const { shell, ipcRenderer } = require("electron");
@@ -21,59 +17,14 @@ const Swal = require("sweetalert2");
 
 class Home {
   static id = "home";
-
-  constructor() {
-    this.audioPlayer = null;
-  }
-
   async init(config) {
     this.config = config;
     this.db = new database();
     this.instancesSelect();
     this.socialLick();
     this.IniciarEstadoDiscord();
-    this.IniciarCanciones();
   }
 
-  async IniciarCanciones() {
-    // Inicializar el reproductor de audio
-    this.audioPlayer = new Audio();
-    
-    
-  
-    // Cargar canciones y reproducir una aleatoriamente
-    const songs = await fetchSongs();
-    playRandomSong(songs, this.audioPlayer);
-
-    // Configurar el botón de mute/unmute
-    const toggleSoundButton = document.querySelector('.icon-sound');
-    toggleSoundButton.addEventListener('click', () => {
-      // Cambia el estado de muteo
-      this.isMuted = toggleMute(this.audioPlayer, this.isMuted); // Cambia isMuted a this.isMuted
-      if (this.isMuted) {
-        toggleSoundButton.classList.remove('icon-unmute');
-        toggleSoundButton.classList.add('icon-mute');
-    } else {
-        toggleSoundButton.classList.remove('icon-mute');
-        toggleSoundButton.classList.add('icon-unmute');
-    }
-  })
-  const volumeSlider = document.getElementById('volumeSlider');
-    volumeSlider.addEventListener('input', (event) => {
-        const volume = event.target.value; // Obtener el valor del slider
-        this.audioPlayer.volume = volume; // Establecer el volumen del reproductor
-
-        if (volume == 0) { // Si el volumen es 0, mutear el audio
-            this.isMuted = true;
-            toggleSoundButton.classList.remove('icon-unmute');
-            toggleSoundButton.classList.add('icon-mute');
-        } else {
-            this.isMuted = false; // No está muteado
-            toggleSoundButton.classList.remove('icon-mute');
-            toggleSoundButton.classList.add('icon-unmute');
-        }
-    });
-}
   
   async IniciarEstadoDiscord() {
     let configClient = await this.db.readData("configClient");
@@ -418,10 +369,6 @@ class Home {
 
       ipcRenderer.send("main-window-progress-load");
       infoStarting.innerHTML = `Jugando a '${options.name}...`;
-      if (this.audioPlayer) {
-        this.audioPlayer.pause(); // Detener la música
-        this.audioPlayer.currentTime = 0; // Reiniciar la música
-    }
     });
 
     launch.on("close", (code) => {
@@ -440,9 +387,6 @@ class Home {
       playInstanceBTN.style.display = "flex";
       infoStarting.innerHTML = `Launcher en espera...`;
       new logger(pkg.name, "#7289da");
-      if (this.audioPlayer) {
-        this.audioPlayer.play(); // Reanudar la música
-    }
     });
 
     launch.on("error", (err) => {

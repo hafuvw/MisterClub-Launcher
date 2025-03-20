@@ -12,7 +12,7 @@ import {
   popup,
   appdata,
 } from "../utils.js";
-const { ipcRenderer } = require("electron");
+const { ipcRenderer, shell } = require("electron");
 const os = require("os");
 
 class Settings {

@@ -18,7 +18,7 @@ class logger {
     console.log = (value) => {
       console_log.call(
         console,
-        `%c[Armonia Client]:`,
+        `%c[Mister Client]:`,
         `color: ${color};`,
         value
       );
@@ -27,7 +27,7 @@ class logger {
     console.info = (value) => {
       console_info.call(
         console,
-        `%c[Armonia Client]:`,
+        `%c[Mister Client]:`,
         `color: ${color};`,
         value
       );
@@ -36,7 +36,7 @@ class logger {
     console.warn = (value) => {
       console_warn.call(
         console,
-        `%c[Armonia Client]:`,
+        `%c[Mister Client]:`,
         `color: ${color};`,
         value
       );
@@ -45,7 +45,7 @@ class logger {
     console.debug = (value) => {
       console_debug.call(
         console,
-        `%c[Armonia Client]:`,
+        `%c[Mister Client]:`,
         `color: ${color};`,
         value
       );
@@ -54,7 +54,7 @@ class logger {
     console.error = (value) => {
       console_error.call(
         console,
-        `%c[Armonia Client]:`,
+        `%c[Mister Client]:`,
         `color: ${color};`,
         value
       );

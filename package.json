@@ -1,12 +1,12 @@
 {
-  "name": "MisterClub-Launcher",
+  "name": "misterclub-launcher",
   "preductname": "Mister Client",
   "versionType": "Estable",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "description": "Cliente oficial de Mister Club",
   "main": "src/app.js",
   "author": {
-    "name": "hafuvw x Itzrauh, Inc.",
+    "name": "hafuvw",
     "email": "contact@hafu.cfd",
     "url": "https://hafu.cfd"
   },

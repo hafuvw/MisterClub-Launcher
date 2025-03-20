@@ -1,5 +1,5 @@
 /**
- * @author ElFo2K
+ * @author itzrauh
  */
 
 const { app, ipcMain, nativeTheme } = require("electron");
@@ -13,7 +13,7 @@ const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
 
 let dev = process.env.NODE_ENV === "dev";
-
+//dev = false ESTA COSA es para que si la pones sin comentario te salga lo de update
 if (dev) {
   let appPath = path.resolve("./data/Launcher").replace(/\\/g, "/");
   let appdata = path.resolve("./data").replace(/\\/g, "/");

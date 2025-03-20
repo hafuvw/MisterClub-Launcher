@@ -15,34 +15,6 @@ import popup from "./utils/popup.js";
 import { skin2D } from "./utils/skin.js";
 import slider from "./utils/slider.js";
 
-async function fetchSongs() {
-  try {
-    const response = await fetch('http://102.129.137.139:25565/launcher/music'); // Ruta al PHP
-    const songs = await response.json();
-    return songs;
-  } catch (error) {
-    console.error("Error al cargar canciones:", error);
-    return [];
-  }
-}
-
-async function playRandomSong(songs, audioPlayer) {
-  if (songs.length === 0) return;
-
-  const randomIndex = Math.floor(Math.random() * songs.length);
-  audioPlayer.src = songs[randomIndex];
-  audioPlayer.play();
-
-// Cuando termine una canción, selecciona otra aleatoriamente
-  audioPlayer.onended = () => playRandomSong(songs, audioPlayer);
-}
-
-function toggleMute(audioPlayer, isMuted) {
-  isMuted = !isMuted;
-  audioPlayer.muted = isMuted;
-  return isMuted;
-}
-
 async function changePanel(id) {
   let panel = document.querySelector(`.${id}`);
   let active = document.querySelector(`.active`);
@@ -168,8 +140,5 @@ export {
   accountSelect as accountSelect,
   slider as Slider,
   pkg as pkg,
-  setStatus as setStatus,
-  playRandomSong as playRandomSong,
-  fetchSongs as fetchSongs,
-  toggleMute as toggleMute,
+  setStatus as setStatus
 };

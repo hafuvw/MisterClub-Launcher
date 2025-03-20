@@ -135,7 +135,7 @@ class Login {
         const pkg = require("../package.json");
 
         let response = await fetch(
-          `http://102.129.137.55:25566/armonia/launcher/config-launcher/blacklist.json`
+          `http://102.129.137.139:25565/launcher/launcher/config-launcher/blacklist.json`
         );
         let data = await response.json();
         let blacklist = data.blacklist_users.map((user) => user.toLowerCase());
